@@ -4,7 +4,7 @@ let questions = [
         "answer_1": "Robbie Williams",
         "answer_2": "Lady Gaga",
         "answer_3": "Tim Berners-Lee",
-        "answer_4": "Justinn Bieber",
+        "answer_4": "Justin Bieber",
         "right_answer": 3
     },
     {
@@ -40,3 +40,38 @@ let questions = [
         "right_answer": 2
     }
 ];
+
+let currentQuestion = 0;
+
+
+function init() {
+    let lastQuestion = document.getElementById('array_lenght');
+
+    lastQuestion.innerHTML = "";
+    lastQuestion.innerHTML = questions.length
+
+    showQuestion();
+}
+
+function showQuestion() {
+
+    document.getElementById('questiontext').innerHTML = questions[currentQuestion].question;
+    document.getElementById('answer_1').innerHTML = questions[currentQuestion].answer_1;
+    document.getElementById('answer_2').innerHTML = questions[currentQuestion].answer_2;
+    document.getElementById('answer_3').innerHTML = questions[currentQuestion].answer_3;
+    document.getElementById('answer_4').innerHTML = questions[currentQuestion].answer_4;
+
+}
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    
+    if (selectedQuestionNumber == question['right_answer']) {
+        console.log('Richtig!!!');
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+    } else {
+        console.log('Leider Flasch...'); 
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+    }
+}

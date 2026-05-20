@@ -17,7 +17,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="init()">
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">QuizApp</span>
@@ -30,35 +30,35 @@
                 <img src="./img/quiz.png" class="card-img-top quiz-img" alt="...">
             </div>
             <div class="card-body">
-                <h5 class="card-title">Frage</h5>
+                <h5 class="card-title" id="questiontext">Frage</h5>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
                         Antwort.
                     </div>
                 </div>
 
-                <div class="card mb-2">
-                    <div class="card-body">
+                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
                         Antwort
                     </div>
                 </div>
 
                 <div class="question-footer">
                     <div>
-                        <b>1</b> von <b>5</b> Fragen
+                        <b>1</b> von <b id="array_lenght">5</b> Fragen
                     </div>
 
                     <div>
