@@ -42,7 +42,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
-let question = questions[currentQuestion];
+let rightAnswers = 0;
 
 
 function init() {
@@ -55,12 +55,23 @@ function init() {
 }
 
 function showQuestion() {
+    let question = questions[currentQuestion];
 
-
-    if (currentQuestion >= questions.length) {
-        document.getElementById('end-screen').style = "";
+    if (currentQuestion >= questions.length) { // show end screen
         document.getElementById('question-body').style = 'display: none';
-    } else {
+        document.getElementById('end-screen').style = '';
+
+        document.getElementById('amount-of-right-answers').innerHTML = rightAnswers;
+        document.getElementById('amount-of-questions').innerHTML = questions.length;
+
+        document.getElementById('header-image').src = 'img/trophy.png';
+        document.getElementById('header-image').classList.remove('quiz-img');
+        document.getElementById('end-text').style = 'font-size: x-large';
+    } else { // show question
+        let percent = (currentQuestion + 1) / questions.length;
+        percent = Math.round(percent * 100);
+        document.getElementById('progress-bar').innerHTML = percent + '%';
+        document.getElementById('progress-bar').style = `width: ${percent}%`;
 
         document.getElementById('questiontext').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];
@@ -68,17 +79,20 @@ function showQuestion() {
         document.getElementById('answer_3').innerHTML = question['answer_3'];
         document.getElementById('answer_4').innerHTML = question['answer_4'];
 
-        document.getElementById('current-question').innerHTML = currentQuestion + 1;
     }
+    document.getElementById('current-question').innerHTML = currentQuestion + 1;
 }
 
 function answer(selection) {
+    let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
+
     let idOfRightAnswer = `answer_${question['right_answer']}`
 
 
     if (selectedQuestionNumber == question['right_answer']) {
         console.log('Richtig!!!');
+        rightAnswers++;
         document.getElementById(selection).parentNode.classList.add('bg-success');
     } else {
         console.log('Leider Flasch...');
