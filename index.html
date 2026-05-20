@@ -25,32 +25,40 @@
     </nav>
 
     <div class="container">
-        <div class="card quiz-card">
+
+        <div class="card-body card" id="end-screen" style="display: none;">
+            <div class="img-position">
+                <img src="./img/quiz.png" class="card-img-top quiz-img" alt="...">
+            </div>
+            Quiz beendet! Danke fürs mitmachen!
+        </div>
+
+        <div class="card quiz-card" id="question-body">
             <div class="img-position">
                 <img src="./img/quiz.png" class="card-img-top quiz-img" alt="...">
             </div>
             <div class="card-body">
                 <h5 class="card-title" id="questiontext">Frage</h5>
 
-                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_1')">
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
                     <div class="card-body" id="answer_1">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_2')">
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
                     <div class="card-body" id="answer_2">
                         Antwort
                     </div>
                 </div>
 
-                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_3')">
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
                     <div class="card-body" id="answer_3">
                         Antwort.
                     </div>
                 </div>
 
-                <div class="card quiz-answer-card mb-2"  onclick="answer('answer_4')">
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
                     <div class="card-body" id="answer_4">
                         Antwort
                     </div>
@@ -62,7 +70,8 @@
                     </div>
 
                     <div>
-                        <button onclick="nextQuestion()" class="btn btn-info disabled" id="next_button">Nächste Frage</button>
+                        <button onclick="nextQuestion()" class="btn btn-info disabled" id="next_button">Nächste
+                            Frage</button>
                     </div>
                 </div>
 

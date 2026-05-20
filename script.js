@@ -42,6 +42,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let question = questions[currentQuestion];
 
 
 function init() {
@@ -54,21 +55,25 @@ function init() {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
 
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
 
-    document.getElementById('current-question').innerHTML = currentQuestion + 1;
+    if (currentQuestion >= questions.length) {
+        document.getElementById('end-screen').style = "";
+        document.getElementById('question-body').style = 'display: none';
+    } else {
+
+        document.getElementById('questiontext').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+        document.getElementById('current-question').innerHTML = currentQuestion + 1;
+    }
 }
 
 function answer(selection) {
-    let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
-
     let idOfRightAnswer = `answer_${question['right_answer']}`
 
 

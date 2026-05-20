@@ -40,3 +40,7 @@ body {
 .bg-success, .bg-danger {
     color: white !important;
 }
+
+.card-body {
+    flex: none !important;
+}
